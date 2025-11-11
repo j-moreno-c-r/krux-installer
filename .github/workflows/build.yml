@@ -32,14 +32,14 @@ jobs:
     
     steps:
       
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           submodules: recursive
           
       - name: Install poetry
         run: pipx install poetry
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         if: ${{ matrix.arch != 'arm64' }}
         with:
           python-version: '3.12'
@@ -47,7 +47,7 @@ jobs:
           cache-dependency-path: './poetry.lock'
           architecture: ${{ matrix.arch }}
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         if: ${{ matrix.arch == 'arm64' }}
         with:
           python-version: '3.12'
@@ -78,7 +78,7 @@ jobs:
           echo "dyld-path=${OPENSSL_PATH}/lib" >> $GITHUB_OUTPUT
          
       - name: Install project and its dependencies
-        run: poetry install --no-root
+        run: poetry install
      
       - name: Build dist (Linux)
         if: ${{ runner.os == 'Linux' }}
@@ -213,7 +213,7 @@ jobs:
 
       - name: Upload artifact deb (Linux)
         if: ${{ runner.os == 'Linux' }}
-        uses: actions/upload-artifact@v4         
+        uses: actions/upload-artifact@v5         
         with:
           name: ${{ steps.release-deb.outputs.pkg }}
           path: |
@@ -222,7 +222,7 @@ jobs:
       
       - name: Upload artifact rpm (Linux)
         if: ${{ runner.os == 'Linux' }}
-        uses: actions/upload-artifact@v4         
+        uses: actions/upload-artifact@v5         
         with:
           name: ${{ steps.release-rpm.outputs.pkg }}
           path: |
@@ -231,7 +231,7 @@ jobs:
             
       - name: Upload artifacts (MacOS)
         if: ${{ runner.os == 'macOS' }}
-        uses: actions/upload-artifact@v4         
+        uses: actions/upload-artifact@v5         
         with:
           name: ${{ steps.release-macos.outputs.pkg }}
           path: |
@@ -240,7 +240,7 @@ jobs:
       
       - name: Upload artifacts (Windows)
         if: ${{ runner.os == 'Windows' }}
-        uses: actions/upload-artifact@v4         
+        uses: actions/upload-artifact@v5         
         with:
           name: ${{ steps.release-windows.outputs.pkg }}
           path: |
