@@ -135,7 +135,7 @@ https://docs.astral.sh/uv/
 Clone the repository:
 
 ```bash
-git clone --recurse-submodules https://github.com/krux-installer.git
+git clone --recurse-submodules https://github.com/selfcustody/krux-installer.git
 ```
 
 Install python dependencies:
