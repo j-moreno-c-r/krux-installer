@@ -1,7 +1,5 @@
 [project]
 name = "krux-installer"
-[project]
-name = "krux-installer"
 version = "0.0.21"
 description = "A GUI based application to flash Krux firmware on K210 based devices"
 authors = [
