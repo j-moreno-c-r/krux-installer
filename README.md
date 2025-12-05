@@ -131,7 +131,7 @@ git clone --recurse-submodules https://github.com/selfcustody/krux-installer.git
 Install python dependencies:
 
 ```b̀ash
-uv synv --all-extras
+uv sync --all-extras
 ```
 
 ## Update code
