@@ -125,7 +125,7 @@ jobs:
         
       - name: Run tests with coverage (Linux)
         if: ${{ runner.os == 'Linux' }}
-        uses: coactions/setup-xvfb@6b00cf1889f4e1d5a48635647013c0508128ee1a
+        uses: coactions/setup-xvfb@v1.0.1
         with:
           run: |
             uv add pytest-xvfb
